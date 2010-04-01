@@ -1,0 +1,34 @@
+#!/usr/local/bin/node
+/**
+ * Inspiration from http://github.com/caolan/nodeunit
+ *
+ * @author Christian Johansen (christian@cjohansen.no)
+ */
+var fs = require("fs");
+var sys = require("sys");
+
+require.paths.push(__dirname);
+require.paths.push(__dirname + "/lib");
+
+function red (str) {
+    return "\033[31m" + str + "\033[39m"
+};
+
+function green (str) {
+    return "\033[32m" + str + "\033[39m"
+};
+
+fs.readdirSync("test").filter(function (filename) {
+    return /\.js$/.exec(filename);
+}).forEach(function (filename) {
+    var testCase = filename.replace(/\.js$/, "");
+
+    try {
+        require("test/" + testCase);
+    } catch (e) {
+        sys.puts(red(testCase + " contained errors, please review"));
+        throw e;
+    }
+
+    sys.puts(green("OK ") + testCase);
+});
