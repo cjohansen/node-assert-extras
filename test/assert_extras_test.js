@@ -104,6 +104,45 @@ assert.doesNotThrow(function () {
 
     extras.isNotPrototypeOf({}, {});
     extras.isNotPrototypeOf({}, {}, "Some message");
+
+    var object = Object.create(Object.prototype, {
+        isWritable: {
+            value: {},
+            writable: true
+        },
+
+        isNotWritable: {
+            value: {},
+            writable: false
+        },
+
+        isConfigurable: {
+            value: {},
+            configurable: true
+        },
+
+        isNotConfigurable: {
+            value: {},
+            configurable: false
+        },
+
+        isEnumerable: {
+            value: {},
+            enumerable: true
+        },
+
+        isNotEnumerable: {
+            value: {},
+            enumerable: false
+        }
+    });
+
+    extras.isWritable(object, "isWritable");
+    extras.isNotWritable(object, "isNotWritable");
+    extras.isConfigurable(object, "isConfigurable");
+    extras.isNotConfigurable(object, "isNotConfigurable");
+    extras.isEnumerable(object, "isEnumerable");
+    extras.isNotEnumerable(object, "isNotEnumerable");
 });
 
 assert.strictEqual(extras.fail, assert.fail);
