@@ -106,6 +106,17 @@ assert.doesNotThrow(function () {
     extras.isNotPrototypeOf({}, {}, "Some message");
 });
 
+assert.strictEqual(extras.fail, assert.fail);
+assert.strictEqual(extras.ok, assert.ok);
+assert.strictEqual(extras.equal, assert.equal);
+assert.strictEqual(extras.notEqual, assert.notEqual);
+assert.strictEqual(extras.deepEqual, assert.deepEqual);
+assert.strictEqual(extras.notDeepEqual, assert.notDeepEqual);
+assert.strictEqual(extras.strictEqual, assert.strictEqual);
+assert.strictEqual(extras.notStrictEqual, assert.notStrictEqual);
+assert.strictEqual(extras.throws, assert.throws);
+assert.strictEqual(extras.doesNotThrow, assert.doesNotThrow);
+
 assert.throws(function () {
     extras.isTypeOf(function () {}, "object");
 }, assert.AssertionError);
@@ -265,4 +276,3 @@ assert.throws(function () {
 assert.throws(function () {
     extras.isNotPrototypeOf(Array.prototype, []);
 }, assert.AssertionError);
-
