@@ -1,0 +1,16 @@
+{
+    "name": "node-assert-extras",
+    "version": "0.1.0",
+    "description": "Extended assert module for Node.JS",
+    "homepage": "http://cjohansen.no/en/node_js/unit_testing_node_js_apps",
+    "author": {
+        "name": "Christian Johansen",
+        "email": "christian@cjohansen.no",
+        "url": "http://cjohansen.no"
+    },
+    "main": "./lib/assert-extras",
+    "repository": {
+        "type": "git",
+        "url": "git://gitorious.org/node-assert-extras/mainline.git"
+    }
+}
